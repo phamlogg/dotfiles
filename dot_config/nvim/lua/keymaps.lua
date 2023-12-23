@@ -1,40 +1,59 @@
 -- Keymaps
 vim.g.mapleader = " "
 
-local keymap = vim.keymap
+local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
+
+-- jk to exit Insert mode
+keymap("i", "jk", "<Esc>", opts)
 
 -- Increment/decrement
 
-keymap.set("n", "+", "<C-a>")
-keymap.set("n", "-", "<C-x>")
+keymap("n", "+", "<C-a>")
+keymap("n", "-", "<C-x>")
 
 -- Delete a word backwards
 
--- keymap.set("n", "dw", "vb_d")
+-- keymap("n", "dw", "vb_d")
 
 -- Select all
 
-keymap.set("n", "<C-a>", "gg<S-v>G")
+keymap("n", "<C-a>", "gg<S-v>G")
 
 -- <leader> + (1-9) for tab switching
 for i = 1,9,1
 do
-  keymap.set("n", "<leader>"..i, i.."gt", {})
+  keymap("n", "<leader>"..i, i.."gt", {})
 end
-keymap.set("n", "<leader>0", ":tablast<cr>", {})
+keymap("n", "<leader>0", ":tablast<cr>", {})
 
 -- Insert empty line without entering Insert mode
 
-keymap.set('n', '<leader>o', ':<C-u>call append(line("."), repeat([""], v:count1))<CR>', opts)
-keymap.set('n', '<leader>O', ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>', opts)
+keymap('n', '<leader>o', ':<C-u>call append(line("."), repeat([""], v:count1))<CR>', opts)
+keymap('n', '<leader>O', ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>', opts)
 
 -- Alt/Meta + j/k to move line down/up 
 
-keymap.set('n', '<M-k>', 'yyddkP', opts)
-keymap.set('n', '<M-j>', 'yyddp', opts)
+keymap('n', '<M-k>', 'yyddkP', opts)
+keymap('n', '<M-j>', 'yyddp', opts)
+keymap("v", "<M-k>", ":move '<-2<CR>gv-gv", opts)
+keymap("v", "<M-j>", ":move '>+1<CR>gv-gv", opts)
+keymap("x", "<M-j>", ":move '>+1<CR>gv-gv", opts)
+keymap("x", "<M-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- H/L to move to first/last character of line
 
-keymap.set('n', 'H', '_', opts)
-keymap.set('n', 'L', '$', opts)
+keymap('n', 'H', '_', opts)
+keymap('n', 'L', '$', opts)
+
+-- Menu navigation
+keymap("c", "<C-j>",  'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } )
+keymap("c", "<C-k>",  'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } )
+
+-- Move cursor while staying in Insert mode
+keymap("i", "<M-l>", "<C-o>l", opts)
+keymap("i", "<M-h>", "<C-o>h", opts)
+
+-- Indenting
+keymap("v", "<", "<gv", opts)
+keymap("v", ">", ">gv", opts)

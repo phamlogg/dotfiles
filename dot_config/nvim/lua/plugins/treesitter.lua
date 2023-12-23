@@ -1,6 +1,16 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+
+  dependencies = {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    "windwp/nvim-ts-autotag",
+    "hiphish/rainbow-delimiters.nvim",
+    "windwp/nvim-autopairs",
+  },
+
   build = ":TSUpdate",
+  event = "bufWinEnter",
+
   config = function()
     require("nvim-treesitter.configs").setup({
       ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
@@ -8,6 +18,16 @@ return {
       auto_install = true,
 
       highlight = {
+        enable = true,
+      },
+
+      autotag = {
+        enable = true,
+      },
+      autopairs = {
+        enable = true,
+      },
+      rainbow = {
         enable = true,
       },
 
