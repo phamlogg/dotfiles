@@ -59,6 +59,21 @@ Configure terminal to use new font.
 #### Make zsh use ohmyzsh (Should already be in `~/.zshrc`)
 Add the following snippet as the last line to `~/.zshrc`
 
+# tmux
+
+```
+sudo apt install tmux
+```
+
+## tpm
+
+```
+# type this in terminal if tmux is already running
+tmux source ~/.tmux.conf
+```
+
+Run `<prefix> + I` to install plugins
+
 # nvim
 
 ## npm
