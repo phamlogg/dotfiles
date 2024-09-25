@@ -1,6 +1,4 @@
-# My config files
-
-Dependencies:
+# Dependencies:
 - curl
 - git
 - zsh
@@ -12,39 +10,57 @@ Dependencies:
 - xclip
 - nvim
 
-## zsh
+# zsh
 
-### Install zsh
+## Install zsh
  
-`sudo apt install zsh`
+```
+sudo apt install zsh
+```
 
 Verify installation
-`zsh --version`
+```
+zsh --version
+```
 
 Make zsh default shell
-`chsh -s $(which zsh)`
+```
+chsh -s $(which zsh)
+```
 
-### Install ohmyzsh
-Run `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+## Install ohmyzsh
 
-### Install ohmyposh
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
 
-`curl -s https://ohmyposh.dev/install.sh | bash -s`
+## Install ohmyposh
+
+```
+curl -s https://ohmyposh.dev/install.sh | bash -s
+```
+
 By default the script will install to `/usr/local/bin`. Change the installation dir by using `-d` flag.
-`curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin`
 
-#### Install a nerd font
+```
+curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
+```
 
-`oh-my-posh font install`
+
+### Install a nerd font
+
+```
+oh-my-posh font install
+```
 
 Configure terminal to use new font.
 
 #### Make zsh use ohmyzsh (Should already be in `~/.zshrc`)
 Add the following snippet as the last line to `~/.zshrc`
 
-## nvim
+# nvim
 
-### npm
+## npm
 ```
 # Check if node and npm exist
 node -v
@@ -63,13 +79,21 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 ```
 
-### gcc
+## gcc
 
-`sudo apt install gcc` or `sudo apt install build-essential`
+```
+sudo apt install gcc
+```
+or 
+```
+sudo apt install build-essential
+```
 
 Verify installation by running `gcc --version`
 
-### xclip
+## xclip
 
-`sudo apt install xclip`
+```
+sudo apt install xclip
+```
 
