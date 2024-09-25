@@ -2,15 +2,45 @@
 
 Dependencies:
 - curl
-- gcc
 - git
-- node.js & npm
-- xclip
-- nvim
 - zsh
 - ohmyzsh
 - ohmyposh
 - tmux
+- gcc
+- node.js & npm
+- xclip
+- nvim
+
+## zsh
+
+### Install zsh
+ 
+`sudo apt install zsh`
+
+Verify installation
+`zsh --version`
+
+Make zsh default shell
+`chsh -s $(which zsh)`
+
+### Install ohmyzsh
+Run `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+
+### Install ohmyposh
+
+`curl -s https://ohmyposh.dev/install.sh | bash -s`
+By default the script will install to `/usr/local/bin`. Change the installation dir by using `-d` flag.
+`curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin`
+
+#### Install a nerd font
+
+`oh-my-posh font install`
+
+Configure terminal to use new font.
+
+#### Make zsh use ohmyzsh (Should already be in `~/.zshrc`)
+Add the following snippet as the last line to `~/.zshrc`
 
 ## nvim
 
