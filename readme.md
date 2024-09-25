@@ -2,13 +2,14 @@
 - curl
 - git
 - zsh
-- ohmyzsh
-- ohmyposh
+  - ohmyzsh
+  - ohmyposh
 - tmux
-- gcc
-- node.js & npm
-- xclip
+  - tpm
 - nvim
+  - gcc
+  - node.js & npm
+  - xclip
 
 # zsh
 
